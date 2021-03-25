@@ -1,0 +1,29 @@
+.login-form{
+    height: 100%;
+    text-align: center;
+    background-image: url("https://png.pngtree.com/thumb_back/fw800/back_our/20190620/ourmid/pngtree-chinese-chess-game-poster-background-material-image_164731.jpg");
+    background-size: cover;
+    background-position:center;
+    min-width: auto;
+    min-height: auto;
+  
+    &:before{
+      content: '';
+      width: 0;
+      height: 100%;
+      display: inline-block;
+      vertical-align: middle;
+    }
+  
+    >div{
+      text-align: left;
+      display: inline-block;
+      vertical-align: middle;
+  
+      table{
+        th, td{
+          padding: 5px 10px;
+        }
+      }
+    }
+  }
