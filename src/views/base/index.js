@@ -18,6 +18,7 @@ export default class BaseComponent extends React.Component {
                 uuid: sessionStorage.getItem(StoreKey.uuid),
                 user: sessionStorage.getItem(StoreKey.user),
                 fallback: () => {
+
                     this.props.history.push(Views.index);
                 }
             });
