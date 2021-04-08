@@ -1,6 +1,6 @@
 import React from "react";
 import BaseComponent from "../../base/index";
-import {PieceColor, PlayerStatus} from "../../../enums/index";
+import { PieceColor, PlayerStatus } from "../../../enums/index";
 
 export default class Players extends BaseComponent {
     static defaultProps = {
@@ -18,12 +18,18 @@ export default class Players extends BaseComponent {
     get readyButton() {
         return (
             <button type="button" onClick={() => {
+                this.readyClickHandler()
             }}>Ready</button>
         )
     }
 
+    readyClickHandler() {
+        let roomId = parseInt(sessionStorage.getItem(StoreKey.roomId));
+        Global.socket.playerReady(roomId);
+    }
+
     render() {
-        let {adversary, self, gameStart, active} = this.props;
+        let { adversary, self, gameStart, active } = this.props;
         return (
             <div className="players">
                 <div className="player">
