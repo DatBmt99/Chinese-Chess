@@ -52,4 +52,13 @@ export default class ChessBook extends BaseComponent {
         return name;
     }
 
+    getStepName(item) {
+        if (!item) return null;
+        let isOpposite = this.props.perspective !== item.color;
+        let pieceName = PieceTypeZH[item.type];
+        let posName = isOpposite ? ChineseNumeral[BoardSize.Width + 1 - item.from.x] : ChineseNumeral[item.from.x];
+        let moveName = this.getMoveName(item, isOpposite);
+        return `${pieceName}${posName}${moveName}`;
+    }
+
 }
