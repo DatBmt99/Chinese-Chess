@@ -14,7 +14,7 @@ export default class ChessBook extends BaseComponent {
     }
 
     getBookList() {
-        let {data} = this.props;
+        let { data } = this.props;
         let list = [];
         for (let i = 0; i < data.length; i += 2) {
             list.push((
@@ -25,6 +25,31 @@ export default class ChessBook extends BaseComponent {
             ))
         }
         return <ol>{list}</ol>
+    }
+
+    getMoveName(item, isOpposite) {
+        let { from, to } = item;
+        let fromX = from.x, fromY = from.y, toX = to.x, toY = to.y;
+        let name = "";
+
+        if (isOpposite) {
+            fromX = BoardSize.Width + 1 - fromX;
+            fromY = BoardSize.Height + 1 - fromY;
+            toX = BoardSize.Width + 1 - toX;
+            toY = BoardSize.Height + 1 - toY;
+        }
+
+        if (fromY > toY) {
+            name = `Up${ChineseNumeral[fromX === toX ? fromY - toY : toX]}`;
+        }
+        if (fromY < toY) {
+            name = `Down${ChineseNumeral[fromX === toX ? toY - fromY : toX]}`;
+        }
+        if (fromY === toY && fromX !== toX) {
+            name = `Across${ChineseNumeral[toX]}`;
+        }
+
+        return name;
     }
 
 }
