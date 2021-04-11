@@ -61,4 +61,17 @@ export default class ChessBook extends BaseComponent {
         return `${pieceName}${posName}${moveName}`;
     }
 
+    componentDidUpdate(){
+        let container = this.refs["chess-book"];
+        container.scrollTop = container.scrollHeight - container.clientHeight;
+    }
+
+    render() {
+        return (
+            <div ref="chess-book" className="chess-book">
+                {this.getBookList()}
+            </div>
+        )
+    }
+
 }
