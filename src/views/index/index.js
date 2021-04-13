@@ -1,6 +1,9 @@
 import "./index.scss";
 import React from "react";
-
+import BaseComponent from "../base/index";
+import {Views} from "../../enums/index";
+import {WebSocketClient, Global, StoreKey} from "../../utils/index";
+// import Music from "../../utils/AudioBackground";
 export default class Login extends BaseComponent {
     constructor(props) {
         super(props)
@@ -30,7 +33,7 @@ export default class Login extends BaseComponent {
                         <table>
                             <tbody>
                             <tr>
-                                <td>NickName</td>
+                                <td>Nickname</td>
                                 <td><input ref="txtNickName" type="text" required/></td>
                             </tr>
                             <tr>
